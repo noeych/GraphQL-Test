@@ -23,17 +23,17 @@ const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
         users: {
-        type: new GraphQLList(UserType),
-        resolve() {
-            return User.find();  // MongoDB에서 전체 사용자 조회
-        }
-        },
-        user: {
-        type: UserType,
-        args: { id: { type: GraphQLID } },
-        resolve(_, args) {
-            return User.findById(args.id);
-        }
+            type: new GraphQLList(UserType),
+            resolve() {
+                return User.find();  // MongoDB에서 전체 사용자 조회
+            }
+            },
+            user: {
+            type: UserType,
+            args: { id: { type: GraphQLID } },
+            resolve(_, args) {
+                return User.findById(args.id);
+            }
         }
     }
 });
