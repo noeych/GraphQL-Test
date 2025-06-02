@@ -1,4 +1,5 @@
 # GraphQL + mongoDB CRUD 구현과제
+User.js, schema.js는 연습을 위한 파일로, 해당 구현과제에 사용되지 않습니다.
 
 ## Requirements
 - npm v11.2.0
@@ -91,10 +92,7 @@ curl -X POST http://localhost:5110/graphql -H "Content-Type: application/json" -
 
 ## Research
 
-서버(index.js), Mongoose 모델(ExchangeRate.js), GraphQL 스키마(exchange.js)가 필요하다.
-- 서버 파일에서는 Express, Mongodb 연결 수행
-- Mongoose 모델 파일에서는 스키마 정
-- GraphQL 스키마 파일에서는 User type, Query, Mutation 정의
+GraphQL은 API를 위한 쿼리 언어로, 클라이언트에게 요청한 만큼의 데이터를 제공하는 방식이다.
 
 GraphQL는 아래 구조로 나뉜다:
 - Schema: API 구조 정의
@@ -114,6 +112,13 @@ Int, Float, String, Boolean, ID 자료형이 존재한다.
 여기서, GraphQL Object type은 재사용이 부적절하기 때문에 별도로 Input type이 존재한다.
 
 Object type 필드에서는 Resolver가 정의되지만, Input type 필드에서는 Resolve 할 수 없다. (이미 명시적인 값을 가지기 때문에)
+
+
+GraphQL API Server 구현에는 서버(index.js), Mongoose 모델(ExchangeRate.js), GraphQL 스키마(exchange.js)가 필요하다.
+- 서버 파일에서는 Express, Mongodb 연결 수행
+- Mongoose 모델 파일에서는 스키마 정의 
+- GraphQL 스키마 파일에서는 User type, Query, Mutation 정의
+
 
 ### Code
 기존에 제공된 스키마는 GraphQL SDL 문법이지만, 나는 보다 익숙한 Node.js 코드(Javascript 기반) 문법로 스키마를 작성하였다.
