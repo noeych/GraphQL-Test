@@ -70,6 +70,9 @@ mutation {
   }
 }
 ````
+
+----
+
 2. 터미널에서 처리 (윈도우용 명령어)
 - 환율 조회
 ```graphql
@@ -88,7 +91,6 @@ curl -X POST http://localhost:5110/graphql -H "Content-Type: application/json" -
 ```
 
 
-----
 
 ## Research
 
@@ -98,14 +100,16 @@ GraphQL는 아래 구조로 나뉜다:
 - Schema: API 구조 정의
 - Resolver: API 구현
 
+-----
+
 ### Schema
-< Query, Mutation >
+- Query, Mutation
 
 스키마의 필수 요소로, 사용자가 쓰게 될 기능을 이름, 매개변수, 반환값으로 정의한다.
 
 Query는 GET, Mutation은 POST, DELETE, PUT 기능을 구현한다.
 
-< Object type >
+- Object type
 
 Int, Float, String, Boolean, ID 자료형이 존재한다.
 
@@ -113,12 +117,14 @@ Int, Float, String, Boolean, ID 자료형이 존재한다.
 
 Object type 필드에서는 Resolver가 정의되지만, Input type 필드에서는 Resolve 할 수 없다. (이미 명시적인 값을 가지기 때문에)
 
+-----
 
-GraphQL API Server 구현에는 서버(index.js), Mongoose 모델(ExchangeRate.js), GraphQL 스키마(exchange.js)가 필요하다.
+GraphQL API Server 구현에는 서버(index.js), Mongoose 모델(ExchangeRate.js), GraphQL 스키마(exchange.js)가 필요하다:
 - 서버 파일에서는 Express, Mongodb 연결 수행
 - Mongoose 모델 파일에서는 스키마 정의 
 - GraphQL 스키마 파일에서는 User type, Query, Mutation 정의
 
+-----
 
 ### Code
 기존에 제공된 스키마는 GraphQL SDL 문법이지만, 나는 보다 익숙한 Node.js 코드(Javascript 기반) 문법로 스키마를 작성하였다.
